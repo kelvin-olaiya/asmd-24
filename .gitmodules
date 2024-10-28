@@ -1,0 +1,15 @@
+[submodule "asmd-lab-01"]
+	path = asmd-lab-01
+	url = git@github.com:kelvin-olaiya/asmd-lab-01.git
+[submodule "asmd-lab-02"]
+	path = asmd-lab-02
+	url = git@github.com:kelvin-olaiya/asmd-lab-02.git
+[submodule "asmd-lab-04"]
+	path = asmd-lab-04
+	url = git@github.com:kelvin-olaiya/asmd-lab-04.git
+[submodule "asmd-lab-06"]
+	path = asmd-lab-06
+	url = git@github.com:kelvin-olaiya/asmd-lab-06.git
+[submodule "asmd-lab-07"]
+	path = asmd-lab-07
+	url = git@github.com:kelvin-olaiya/asmd-lab-07.git
