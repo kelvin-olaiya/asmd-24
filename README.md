@@ -199,19 +199,19 @@ List({T2|T1|T3|FJ}, {T2|T3|T1J}, {T2|T3|OS|FJ}, {T2J|T3|OS}, {T3|OS|OS|FJ}, {T3J
 ### Simulator
 
 API are available:
-- in the [`Statistcs`](https://github.com/kelvin-olaiya/asmd-lab-07/blob/master/src/main/scala/u07/utils/Statistics.scala) module
+- in the [`Statistics`](https://github.com/kelvin-olaiya/asmd-lab-07/blob/master/src/main/scala/u07/utils/Statistics.scala) module
 - in the [`CTMCSimulation`](https://github.com/kelvin-olaiya/asmd-lab-07/blob/master/src/main/scala/u07/modelling/CTMCSimulation.scala) module
 
 ```scala
 val traces = toCTMC(network).nTracesOfLength(5.procs)(n = 1000)(length = 1000)
 println(
-  s"  Average percentate of time READING: ${traces.averagePercentageOfTimeIn(_ matches MSet(RC))}"
+  s"  Average percentage of time READING: ${traces.averagePercentageOfTimeIn(_ matches MSet(RC))}"
 )
 ```
 
 ### Guru
 
-For this task I wrote a SPN for the Readers and Writers problem. I then created variation of the basic network by variyng the transition rates to see if the system would prioritize access to the critical section between readers and writers.
+For this task I wrote a SPN for the Readers and Writers problem. I then created variation of the basic network by varying the transition rates to see if the system would prioritize access to the critical section between readers and writers.
 
 The various networks are defined [here](https://github.com/kelvin-olaiya/asmd-lab-07/blob/master/src/main/scala/u07/examples/StochasticReadersAndWriters.scala)
 
@@ -219,71 +219,71 @@ Per each of those network i generated 1000 traces of length 1000 and calculated 
 
 ```txt
 Network: Basic
-  Average percentate of time READING: 0.2657276761478273
+  Average percentage of time READING: 0.2657276761478273
   Average percentage of time WRITING: 0.3221837578882083
 ---------------------------------------------------------------
 Network: More readers than writers
-  Average percentate of time READING: 0.4176937396989426
+  Average percentage of time READING: 0.4176937396989426
   Average percentage of time WRITING: 0.1862135259439614
 ---------------------------------------------------------------
 Network: More writers than readers
-  Average percentate of time READING: 0.13060710358761424
+  Average percentage of time READING: 0.13060710358761424
   Average percentage of time WRITING: 0.42563685991525985
 ---------------------------------------------------------------
 Network: Long read
-  Average percentate of time READING: 0.5686121364309811
+  Average percentage of time READING: 0.5686121364309811
   Average percentage of time WRITING: 0.2070770159837259
 ---------------------------------------------------------------
 Network: Long write
-  Average percentate of time READING: 0.1383743150873968
+  Average percentage of time READING: 0.1383743150873968
   Average percentage of time WRITING: 0.6692219191784385
 ---------------------------------------------------------------
 Network: Priority to readers
-  Average percentate of time READING: 0.325978677923638
+  Average percentage of time READING: 0.325978677923638
   Average percentage of time WRITING: 0.430014064460815
 ---------------------------------------------------------------
 Network: Priority to writers
-  Average percentate of time READING: 0.32464705975123337
+  Average percentage of time READING: 0.32464705975123337
   Average percentage of time WRITING: 0.43121581589985786
 ---------------------------------------------------------------
 Network: Priority to writers and long read
-  Average percentate of time READING: 0.6737116781626321
+  Average percentage of time READING: 0.6737116781626321
   Average percentage of time WRITING: 0.27533482460251885
 ---------------------------------------------------------------
 Network: Priority to readers and long write
-  Average percentate of time READING: 0.1443309586375335
+  Average percentage of time READING: 0.1443309586375335
   Average percentage of time WRITING: 0.8277755102518352
 ---------------------------------------------------------------
 Network: Priority to readers and long read
-  Average percentate of time READING: 0.6738952014278677
+  Average percentage of time READING: 0.6738952014278677
   Average percentage of time WRITING: 0.27555353974387387
 ---------------------------------------------------------------
 Network: Priority to writers and long write
-  Average percentate of time READING: 0.1465094553637909
+  Average percentage of time READING: 0.1465094553637909
   Average percentage of time WRITING: 0.8249832418041433
 ---------------------------------------------------------------
 Network: More readers than writers and long read
-  Average percentate of time READING: 0.7550450215433955
+  Average percentage of time READING: 0.7550450215433955
   Average percentage of time WRITING: 0.11084006212948501
 ---------------------------------------------------------------
 Network: More writers than readers and long write
-  Average percentate of time READING: 0.0585587677819981
+  Average percentage of time READING: 0.0585587677819981
   Average percentage of time WRITING: 0.7524234358459324
 ---------------------------------------------------------------
 Network: More readers than writers and priority to readers
-  Average percentate of time READING: 0.48333565221120167
+  Average percentage of time READING: 0.48333565221120167
   Average percentage of time WRITING: 0.2425036881275246
 ---------------------------------------------------------------
 Network: More writers than readers and priority to writers
-  Average percentate of time READING: 0.18019532728147658
+  Average percentage of time READING: 0.18019532728147658
   Average percentage of time WRITING: 0.646187758204879
 ---------------------------------------------------------------
 Network: More readers than writers and priority to writers
-  Average percentate of time READING: 0.48392520957117263
+  Average percentage of time READING: 0.48392520957117263
   Average percentage of time WRITING: 0.2405053201996192
 ---------------------------------------------------------------
 Network: More writers than readers and priority to readers
-  Average percentate of time READING: 0.18019921407324632
+  Average percentage of time READING: 0.18019921407324632
   Average percentage of time WRITING: 0.6461574056024267
 ---------------------------------------------------------------
 ```
