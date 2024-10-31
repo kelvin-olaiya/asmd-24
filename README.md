@@ -6,9 +6,9 @@
 
 This task asked to apply ATDD techniques to implement a calculator.
 
-For this porpouse, I a *feature* file per each mathematical operation the calculator should support: *addition*, *subtraction*, *multiplication*, *division*.
+For this porpouse, I've written a *feature* file per each mathematical operation the calculator should support: *addition*, *subtraction*, *multiplication*, *division*.
 
-For the automation of the acceptance tests, I used the *Cucumber* framework, which is a BDD tool that allows to write feature files in a human-readable language (Gherkin) and to implement the steps in a programming language.
+For the automation of the acceptance tests, I used the [*Cucumber*](https://cucumber.io/) framework, which is a BDD tool that allows to write feature files in a human-readable language ([Gherkin](https://cucumber.io/docs/gherkin/reference/)) and to implement the steps in a programming language.
 
 Here is an example of the *addition* feature file:
 
@@ -64,13 +64,13 @@ For this task I imagined that a web system for the management of a basketball fe
 
 ## Lab 2: Advanced testing
 
-### Reeingineer
+### Reengineer
 
-Tests can be found [here]()
+Tests can be found [here](https://github.com/kelvin-olaiya/asmd-lab-02/blob/master/src/test/scala/a01a/sol2/TestGUIExamLogger.scala)
 
 ### Gui-Tester
 
-For this task I implemented a `GUIProbe` which wraps the system's `GUI` and provides an API to interact with it and check its conditions. The `GUIProbe` is a *Facade* that hides the complexity and technicalities of the system's GUI and provides what is needed for automated testing through a simple interface. 
+For this task I implemented a [`GUIProbe`](https://github.com/kelvin-olaiya/asmd-lab-02/blob/master/src/main/scala/a01a/sol2/GUIProbe.scala) which wraps the system's `GUI` and provides an API to interact with it and check its conditions. The `GUIProbe` is a *Facade* that hides the complexity and technicalities of the system's GUI and provides what is needed for automated testing through a simple interface. 
 
 As stated before to be able to test a system, the system it self should provide an API to interact with it and check its conditions
 (Design for testability). 
@@ -82,13 +82,15 @@ In the case of a GUIs, unless it is specified in the requirements, most of the t
 
 ### Adt-Verifier
 
-For this task I defined a `SimpleSequence` and a `ListSequence` ATDs have been defined. The first one is backed-up by a Cons/Nil case class, while the second one is backed-up by a Scala List. I then implemented the map, filter, concat, flatMap, foldLeft, collect and drop methods for both ATDs. I then defined the ScalaCheck properties that correspond to the ATDs axioms that these methods should satisfy.
+For this task I defined a `SimpleSequence` and a `ListSequence` ATDs have been defined. The first one is backed-up by a Cons/Nil case class, while the second one is backed-up by a Scala List. I then implemented the map, filter, concat, flatMap, foldLeft, collect and drop methods for both ATDs. I then defined the [ScalaCheck properties](https://github.com/kelvin-olaiya/asmd-lab-04/blob/master/src/test/scala/lab/u04/SequenceADTProperties.scala) that correspond to the ATDs axioms that these methods should satisfy.
 
-In order to easily verify that the properties hold for both of the ATDs, I defined a generic ScalaCheck property that takes a sequence and a function that should be applied to the sequence. This way, I could easily test the properties for both ATDs by passing the *ModuleType* and the function to the generic property.
+In order to easily verify that the properties hold for both of the ATDs, I defined a generic ScalaCheck property that takes a sequence and a function that should be applied to the sequence. This way, I could [easily test](https://github.com/kelvin-olaiya/asmd-lab-04/blob/master/src/test/scala/lab/u04/ADTChecks.scala) the properties for both ATDs by passing the *ModuleType* and the function to the generic property.
 
 ### Monad-Verifier
 
 A similar methodology was used for the Monad-Verifier task. To verify that the monad laws hold the idea was to ask for a (sigle) function that given a monad, extracts a value from it. Then the test consist into asserting that the values produced by the left and right side of the identity laws are the same.
+
+Test can be found [here](https://github.com/kelvin-olaiya/asmd-lab-04/blob/master/src/test/scala/lab/u04/MonadsProperties.scala)
 
 ---
 
@@ -112,7 +114,7 @@ Given the *Readers and Writers* petri net:
 The goal was to verify that the mutual exclusion safety property holds for the system. 
 In my first approach I tried to use ScalaCheck to check that the property holds for any paht. But, I then switched to a more manual approach, by relying only on Scala Test. This is because in the ScalaCheck approach we make use of `Generator` and the idea is to pick a finite number of samples from the generator and verifying that the property holds for those samples. In this case to be sure that the property holds for all paths we would need to generate all possible paths.
 
-For a more idiomatic way to express propertie a `LTLPredicate` trait was defined. This way we can express the property in a more readable way, similar to what is done in LTL. Thanks to the `LTLPredicate` trait we can also define liveness and fairness properties, which are properties that should hold at some point in the future, for example:
+For a more idiomatic way to express propertie a [`LTLPredicate`](https://github.com/kelvin-olaiya/asmd-lab-06/blob/master/src/main/scala/lab/u06/LTLPredicate.scala) trait was defined. This way we can express the property in a more readable way, similar to what is done in LTL. Thanks to the `LTLPredicate` trait we can also define liveness and fairness properties, which are properties that should hold at some point in the future, for example:
 
 ```scala
 property("If a reader wants to read it will eventually surely do it"):
@@ -162,7 +164,7 @@ Tests are available [here](https://github.com/kelvin-olaiya/asmd-lab-06/blob/mas
 
 ### Artist
 
-To implement a priority petri net, every transition in the petri net is associated with a priority. When impmlementing the `System`s **next** function, I first determine which are the enabled transitions, then I group them by priority and finally I choose the transitions with the highest priority.
+To implement a [priority petri net](https://github.com/kelvin-olaiya/asmd-lab-06/blob/master/src/main/scala/lab/u06/PriorityPetriNet.scala), every transition in the petri net is associated with a priority. When impmlementing the `System`s **next** function, I first determine which are the enabled transitions, then I group them by priority and finally I choose the transitions with the highest priority.
 
 Here's an example of a priority petri net:
 
