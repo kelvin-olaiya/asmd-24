@@ -164,7 +164,7 @@ Tests are available [here](https://github.com/kelvin-olaiya/asmd-lab-06/blob/mas
 
 ### Artist
 
-To implement a [priority petri net](https://github.com/kelvin-olaiya/asmd-lab-06/blob/master/src/main/scala/lab/u06/PriorityPetriNet.scala), every transition in the petri net is associated with a priority. When impmlementing the `System`s **next** function, I first determine which are the enabled transitions, then I group them by priority and finally I choose the transitions with the highest priority.
+To implement a [priority petri net](https://github.com/kelvin-olaiya/asmd-lab-06/blob/master/src/main/scala/lab/u06/PriorityPetriNet.scala), every transition in the petri net is associated with a priority. When implementing the `System`s **next** function, I first determine which are the enabled transitions, then I group them by priority and finally I choose the transitions with the highest priority.
 
 Here's an example of a priority petri net:
 
