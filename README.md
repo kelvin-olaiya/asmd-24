@@ -88,7 +88,7 @@ In order to easily verify that the properties hold for both of the ATDs, I defin
 
 ### Monad-Verifier
 
-A similar methodology was used for the Monad-Verifier task. To verify that the monad laws hold the idea was to ask for a (sigle) function that given a monad, extracts a value from it. Then the test consist into asserting that the values produced by the left and right side of the identity laws are the same.
+A similar methodology was used for the Monad-Verifier task. To verify that the monad laws hold the idea was to ask for a (single) function that given a monad, extracts a value from it. Then the test consist into asserting that the values produced by the left and right side of the identity laws are the same.
 
 Test can be found [here](https://github.com/kelvin-olaiya/asmd-lab-04/blob/master/src/test/scala/lab/u04/MonadsProperties.scala)
 
