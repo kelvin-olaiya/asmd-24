@@ -82,7 +82,7 @@ In the case of a GUIs, unless it is specified in the requirements, most of the t
 
 ### Adt-Verifier
 
-For this task I defined a `SimpleSequence` and a `ListSequence` ATDs have been defined. The first one is backed-up by a Cons/Nil case class, while the second one is backed-up by a Scala List. I then implemented the map, filter, concat, flatMap, foldLeft, collect and drop methods for both ATDs. I then defined the [ScalaCheck properties](https://github.com/kelvin-olaiya/asmd-lab-04/blob/master/src/test/scala/lab/u04/SequenceADTProperties.scala) that correspond to the ATDs axioms that these methods should satisfy.
+For this task I defined a `SimpleSequence` and a `ListSequence` ATD. The [first one](https://github.com/kelvin-olaiya/asmd-lab-04/blob/master/src/main/scala/lab/u04/SimpleSequence.scala) is backed-up by a Cons/Nil case class, while the [second one](https://github.com/kelvin-olaiya/asmd-lab-04/blob/master/src/main/scala/lab/u04/ListSequence.scala) is backed-up by a Scala List. I then implemented the map, filter, concat, flatMap, foldLeft, collect and drop methods for both ATDs. I then defined the [ScalaCheck properties](https://github.com/kelvin-olaiya/asmd-lab-04/blob/master/src/test/scala/lab/u04/SequenceADTProperties.scala) that correspond to the ATDs axioms that these methods should satisfy.
 
 In order to easily verify that the properties hold for both of the ATDs, I defined a generic ScalaCheck property that takes a sequence and a function that should be applied to the sequence. This way, I could [easily test](https://github.com/kelvin-olaiya/asmd-lab-04/blob/master/src/test/scala/lab/u04/ADTChecks.scala) the properties for both ATDs by passing the *ModuleType* and the function to the generic property.
 
