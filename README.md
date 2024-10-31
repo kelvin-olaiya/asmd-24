@@ -46,14 +46,14 @@ In order to be (automatically) testable, an artifact should provide an API to in
 
 For this task I imagined that a web system for the management of a basketball federation activities (seasonal tournaments, teams, players, etc.) had to be developed. The result was the production of the following feature files:
 
-* ChampionshipCreation.feature
-* ChampionshipOrganization.feature
-* ChampionshipRegistration.feature
-* MatchResultApproval.feature
-* PlayerRegistration.feature
-* PlayerMembership.feature
-* PlayerEndingMembership.feature
-* TeamAffiliation.feature
+* [ChampionshipCreation.feature](https://github.com/kelvin-olaiya/asmd-lab-01/blob/master/src/test/resources/features/BasketballSystem/ChampionshipCreation.feature)
+* [ChampionshipOrganization.feature](https://github.com/kelvin-olaiya/asmd-lab-01/blob/master/src/test/resources/features/BasketballSystem/ChampionshipOrganization.feature)
+* [ChampionshipRegistration.feature](https://github.com/kelvin-olaiya/asmd-lab-01/blob/master/src/test/resources/features/BasketballSystem/ChampionshipRegistration.feature)
+* [MatchResultApproval.feature](https://github.com/kelvin-olaiya/asmd-lab-01/blob/master/src/test/resources/features/BasketballSystem/MatchResultApproval.feature)
+* [PlayerRegistration.feature](https://github.com/kelvin-olaiya/asmd-lab-01/blob/master/src/test/resources/features/BasketballSystem/PlayerRegistration.feature)
+* [PlayerMembership.feature](https://github.com/kelvin-olaiya/asmd-lab-01/blob/master/src/test/resources/features/BasketballSystem/PlayerMembership.feature)
+* [PlayerEndingMembership.feature](https://github.com/kelvin-olaiya/asmd-lab-01/blob/master/src/test/resources/features/BasketballSystem/PlayerEndingMembership.feature)
+* [TeamAffiliation.feature](https://github.com/kelvin-olaiya/asmd-lab-01/blob/master/src/test/resources/features/BasketballSystem/TeamAffiliation.feature)
 
 **Some considerations**:
 
@@ -88,7 +88,7 @@ In order to easily verify that the properties hold for both of the ATDs, I defin
 
 ### Monad-Verifier
 
-A similar methodology was used for the Monad-Verifier task. To verify that the monad laws hold the idea was to ask for a (sigle) function that worked with the monad to produce a value. Then test consist into asserting that the left and right identity laws hold for the monad (by producing the same value).
+A similar methodology was used for the Monad-Verifier task. To verify that the monad laws hold the idea was to ask for a (sigle) function that given a monad, extracts a value from it. Then the test consist into asserting that the values produced by the left and right side of the identity laws are the same.
 
 ---
 
@@ -158,9 +158,11 @@ val atMostTwoWriters: System[MSet[State]] = PetriNet[State](
   ).toSystem
 ```
 
+Tests are available [here](https://github.com/kelvin-olaiya/asmd-lab-06/blob/master/src/test/scala/lab/u06/ReadersAndWritersVerifier.scala)
+
 ### Artist
 
-To implement a priority petri net, every transition in the petri net is associated with a priority. When impmlementing the `System`s **next** function, I first determined which are the enabled transitions, then I group them by priority and finally I choose the transitions with the highest priority.
+To implement a priority petri net, every transition in the petri net is associated with a priority. When impmlementing the `System`s **next** function, I first determine which are the enabled transitions, then I group them by priority and finally I choose the transitions with the highest priority.
 
 Here's an example of a priority petri net:
 
@@ -195,8 +197,8 @@ List({T2|T1|T3|FJ}, {T2|T3|T1J}, {T2|T3|OS|FJ}, {T2J|T3|OS}, {T3|OS|OS|FJ}, {T3J
 ### Simulator
 
 API are available:
-- in the `Statistcs` module
-- in the `CTMCSimulation` module
+- in the [`Statistcs`](https://github.com/kelvin-olaiya/asmd-lab-07/blob/master/src/main/scala/u07/utils/Statistics.scala) module
+- in the [`CTMCSimulation`](https://github.com/kelvin-olaiya/asmd-lab-07/blob/master/src/main/scala/u07/modelling/CTMCSimulation.scala) module
 
 ```scala
 val traces = toCTMC(network).nTracesOfLength(5.procs)(n = 1000)(length = 1000)
@@ -209,9 +211,9 @@ println(
 
 For this task I wrote a SPN for the Readers and Writers problem. I then created variation of the basic network by variyng the transition rates to see if the system would prioritize access to the critical section between readers and writers.
 
-The various networks are defined [here]()
+The various networks are defined [here](https://github.com/kelvin-olaiya/asmd-lab-07/blob/master/src/main/scala/u07/examples/StochasticReadersAndWriters.scala)
 
-Per each i generated 1000 traces of length 1000 and calculated the average percentage of time spent reading and writing. Here's the simulation results:
+Per each of those network i generated 1000 traces of length 1000 and calculated the average percentage of time spent reading and writing. Here's the simulation results:
 
 ```txt
 Network: Basic
@@ -287,6 +289,8 @@ Network: More writers than readers and priority to readers
 Counterintuitively, varying the rate of the transition that allows a reader/writer to enter into the critical section does not seem to affect the percentage of time spent reading/writing. Whereas, varying other transion rates works as expected.
 
 ### Chemist
+
+Here's the SPN for the *Brusselator* reaction:
 
 ```scala
 val spn = SPN[Place](
