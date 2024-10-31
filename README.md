@@ -300,7 +300,7 @@ val spn = SPN[Place](
     Trn(MSet(X, X, Y), m => 1.0 * (m(X) * m(Y)), MSet(X, X, X), MSet()),
     Trn(MSet(B, X), m => 1.0 * (m(B) * m(X)), MSet(Y, D), MSet()),
     Trn(MSet(X), m => 1.0 * m(X), MSet(E), MSet()),
-    Trn(MSet(), m => 1.0, MSet(A, B), MSet(A, B))
+    Trn(MSet(), m => 1.0, MSet(A, B), MSet())
   )
 ```
 
